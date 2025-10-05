@@ -29,11 +29,11 @@ public class Bullet : MonoBehaviour
         {
             IncreaseScore();
 
-            if (collision.transform.localScale.x > 0.3f) // tamaño mínimo
+            if (collision.transform.localScale.x > 0.3f)
             {
                 float angle = 30f; // ángulo fijo de separación
 
-                for (int i = -1; i <= 1; i += 2) // dos fragmentos
+                for (int i = -1; i <= 1; i += 2) 
                 {
                     GameObject fragment = Instantiate(
                         collision.gameObject,
@@ -46,21 +46,21 @@ public class Bullet : MonoBehaviour
                     Rigidbody rb = fragment.GetComponent<Rigidbody>();
                     if (rb != null)
                     {
-                        rb.useGravity = false; // 🚫 sin gravedad
+                        rb.useGravity = false; 
 
                         // Vector bisectriz (dirección de la bala)
                         Vector3 dir = Quaternion.AngleAxis(i * angle, Vector3.forward) * targetVector;
 
                         // Asignamos velocidad suave en vez de un impulso loco
-                        rb.linearVelocity = dir.normalized * 2f; // <-- prueba con 1.5f o 2f
+                        rb.linearVelocity = dir.normalized * 2f; 
                     }
 
-                    Destroy(fragment, 8f); // desaparecen a los 8 segundos
+                    Destroy(fragment, 8f); 
                 }
             }
 
-            Destroy(collision.gameObject); // destruir asteroide original
-            Destroy(gameObject);           // destruir la bala
+            Destroy(collision.gameObject); 
+            Destroy(gameObject);           
         }
     }
 
