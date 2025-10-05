@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
 
             if (collision.transform.localScale.x > 0.3f)
             {
-                float angle = 30f; // ángulo fijo de separación
+                float angle = 30f; 
 
                 for (int i = -1; i <= 1; i += 2) 
                 {
