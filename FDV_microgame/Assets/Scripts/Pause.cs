@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        // Al presionar Escape, alternar el menú de pausa
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -21,20 +21,20 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;  // Reanuda el juego
+        Time.timeScale = 1f;  
         isPaused = false;
     }
 
     void Pause()
     {
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;  // Pausa el juego
+        Time.timeScale = 0f;  
         isPaused = true;
     }
 
     public void QuitGame()
     {
-        // Si necesitas un botón de salir
+        
         Application.Quit();
     }
 }
